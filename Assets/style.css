@@ -1,6 +1,10 @@
 h1 {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     color: white;
     background-image: linear-gradient(to right, red , yellow);
+    padding: 20px 0px 20px 0px;
+    font-size: larger;
+    font-weight: bold;
 }
