@@ -1,0 +1,6 @@
+h1 {
+    display: flex;
+    justify-content: center;
+    color: white;
+    background-image: linear-gradient(to right, red , yellow);
+}
