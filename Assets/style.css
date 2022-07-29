@@ -1,10 +1,78 @@
+
+:root {
+    --pColor:  rgb(48,72,94);
+    --sColor:  rgb(167,187,214);
+    --bColor: grey;
+    --tColor: white;
+}
+
+h1, h2, h3, h4, h5 {
+    font-size: large;
+    font-weight: bold;
+}
+
+.body {
+        margin-right: 0px;
+        margin-left: 0px;
+}
+
+/* styling for banner */
 h1 {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    color: white;
-    background-image: linear-gradient(to right, red , yellow);
+    color: var(--tColor);
+    background-image: linear-gradient(to right, var(--pColor) , var(--sColor));
     padding: 20px 0px 20px 0px;
     font-size: larger;
-    font-weight: bold;
+}   
+
+/* styling for search box */
+.searchBox * {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+ul {
+    border-top: 3px solid var(--bColor);
+}
+
+ul li {
+    text-align: center;
+    margin-top: .5rem;
+    padding: .5rem;
+    border-radius: 5px;
+    background-color: var(--bColor);
+}
+
+/* styling for current day weather */
+.currentDay {
+    border: 2px solid var(--bColor);
+    padding: .5rem .5rem 0rem .5rem;
+    margin-bottom: .5rem;
+}
+
+span {
+    background-color: rgb(95, 144, 22);
+    color: var(--tColor);
+    border-radius: 2px;
+}
+
+
+/* styling for 5 day forecast */
+.fHeader {
+    padding-left: 0px;
+}
+
+.forecastBoxes {
+    justify-content: space-between;
+    
+}
+
+.fBox {
+    color: var(--tColor);
+    background-color:var(--pColor);
+    padding: .5rem;
+
 }

@@ -15,22 +15,24 @@
     <!-- main banner -->
     <h1>Weather Dashboard</h1>
     <main>
-        <div class="container">
+        <div class="container-fluid body">
             <div class="row">
                 <!-- Search box -->
-                <div class="col-12 col-sm-12 col-md-12 col-lg-3">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-3 searchBox">
                         <h2>Search for a City:</h2>
-                        <input type="text" placeholder="City">
-                        <button type="submit">Search</button>
-                        <ul></ul>
+                        <input type="text" class="form-control" placeholder="City">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                        <ul>
+
+                        </ul>
                 </div>
                 <!-- weather section  -->
                 <div class="col-12 col-sm-12 col-md-12 col-lg-9">
                     <div class="container">
                         <!-- current day weather -->
                         <div class="row">
-                            <div class="col-12">
-                                <h3>Atlanta (3/30/2021)<span>Icon</span></h3>
+                            <div class="col-12 currentDay">
+                                <h3>Atlanta (3/30/2021) <i>Icon</i></h3>
                                 <p>Temp: 74.01 F</p>
                                 <p>Wind: 6.67 MPH</p>
                                 <p>Humidity: 46%</p>
@@ -39,41 +41,41 @@
                         </div>
                         <!-- 5 day forecast boxes -->
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-12 fHeader">
                                 <h4>5-Day Forecast:</h4>
                             </div>
                         </div>
                         <!-- forecast boxes -->
-                        <div class="row">
-                            <div class="col-12 col-sm-12 col-md-12 col-lg-2">
+                        <div class="row forecastBoxes">
+                            <div class="col-12 col-sm-12 col-md-2 col-lg-2 fBox">
                                 <h5>3/31/2021</h5>
                                 <img src="" alt="">
                                 <p>Temp: 74.01 F</p>
                                 <p>Wind: 6.67 MPH</p>
                                 <p>Humidity: 46%</p>
                             </div>
-                            <div class="col-12 col-sm-12 col-md-12 col-lg-2">
+                            <div class="col-12 col-sm-12 col-md-2 col-lg-2 fBox">
                                 <h5>3/31/2021</h5>
                                 <img src="" alt="">
                                 <p>Temp: 74.01 F</p>
                                 <p>Wind: 6.67 MPH</p>
                                 <p>Humidity: 46%</p>
                             </div>
-                            <div class="col-12 col-sm-12 col-md-12 col-lg-2">
+                            <div class="col-12 col-sm-12 col-md-2 col-lg-2 fBox">
                                 <h5>3/31/2021</h5>
                                 <img src="" alt="">
                                 <p>Temp: 74.01 F</p>
                                 <p>Wind: 6.67 MPH</p>
                                 <p>Humidity: 46%</p>
                             </div>
-                            <div class="col-12 col-sm-12 col-md-12 col-lg-2">
+                            <div class="col-12 col-sm-12 col-md-2 col-lg-2 fBox">
                                 <h5>3/31/2021</h5>
                                 <img src="" alt="">
                                 <p>Temp: 74.01 F</p>
                                 <p>Wind: 6.67 MPH</p>
                                 <p>Humidity: 46%</p>
                             </div>
-                            <div class="col-12 col-sm-12 col-md-12 col-lg-2">
+                            <div class="col-12 col-sm-12 col-md-2 col-lg-2 fBox">
                                 <h5>3/31/2021</h5>
                                 <img src="" alt="">
                                 <p>Temp: 74.01 F</p>
