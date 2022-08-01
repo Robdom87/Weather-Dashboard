@@ -11,11 +11,6 @@ h1, h2, h3, h4, h5 {
     font-weight: bold;
 }
 
-.body {
-        margin-right: 0px;
-        margin-left: 0px;
-}
-
 /* styling for banner */
 h1 {
     display: flex;
@@ -53,13 +48,6 @@ ul li {
     margin-bottom: .5rem;
 }
 
-span {
-    background-color: rgb(95, 144, 22);
-    color: var(--tColor);
-    border-radius: 2px;
-}
-
-
 /* styling for 5 day forecast */
 .fHeader {
     padding-left: 0px;
@@ -70,9 +58,12 @@ span {
     
 }
 
-.fBox {
-    color: var(--tColor);
+.card {
     background-color:var(--pColor);
     padding: .5rem;
+}
 
+.fBox {
+    display: block;
+    margin-bottom: 10px;
 }
