@@ -41,6 +41,10 @@ ul li {
     background-color: var(--bColor);
 }
 
+#dialog {
+    display: none;
+}
+
 /* styling for current day weather */
 .currentDay {
     border: 2px solid var(--bColor);
@@ -55,7 +59,6 @@ ul li {
 
 .forecastBoxes {
     justify-content: space-between;
-    
 }
 
 .card {

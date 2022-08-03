@@ -6,8 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Dashboard</title>
+    <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="./Assets/reset.css">
     <link rel="stylesheet" href="./Assets/style.css">
 </head>
@@ -20,12 +22,12 @@
             <div class="row">
                 <!-- Search box -->
                 <div class="col-12 col-sm-12 col-md-12 col-lg-3 searchBox">
-                        <h2>Search for a City:</h2>
-                        <input type="text" class="form-control" placeholder="City">
-                        <button type="submit" class="btn btn-primary">Search</button>
-                        <ul>
+                    <h2>Search for a City:</h2>
+                    <input type="text" class="form-control" placeholder="City">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                    <ul>
 
-                        </ul>
+                    </ul>
                 </div>
                 <!-- weather section  -->
                 <div class="col-12 col-sm-12 col-md-12 col-lg-9">
@@ -89,8 +91,30 @@
             </div>
         </div>
     </main>
+    <!-- Modal -->
+    <div class="modal" id="ModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Not Found</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Please input a valid city.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="close btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script src="./Develop/script.js"></script>
 </body>
+
 </html>
