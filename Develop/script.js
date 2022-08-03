@@ -6,7 +6,8 @@ var geoUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=
 var requestUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=minutely,hourly,alerts&appid=" + apiKey + "&units=imperial";
 var prevSearches = [];
 
-$(".btn").click(function () {
+//functionalty for search button
+$(".search").click(function () {
     city = $(".form-control").val().toUpperCase();
 
     if (city === "") {
@@ -49,7 +50,10 @@ $(".close").click(function() {
 })
 
 //check if search is clicked then add that input to the search box
-$("li").click(function () { })
+$("ul").click(function (event) {
+    city = $(event.target).text();
+    geoRequest();
+ })
 
 function displaySearches() {
     //clear out all previous buttons
