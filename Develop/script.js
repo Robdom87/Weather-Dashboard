@@ -109,12 +109,61 @@ function weatherRequest() {
 }
 
 function printCurrent(data) {
+    //clear out old box
+    $(".currentDay").children().remove();
     
-
+    //add all weather info to section
+    let currentBox = $(".currentDay");
+    let date = $("<h3>").text(city+" ("+dayjs.unix(data.current.dt).format("MM-DD-YYYY")+")");
+    let icon = $("<img>").attr( "src", "http://openweathermap.org/img/wn/"+data.current.weather[0].icon+"@2x.png").css("height", "50px");
+    date.append(icon);
+    currentBox.append(date);
+    let temp = $("<p>").text("Temp: "+data.current.temp+"°F");
+    currentBox.append(temp);
+    let wind = $("<p>").text("Wind: "+data.current.wind_speed+"MPH");
+    currentBox.append(wind);
+    let humidity = $("<p>").text("Humidity: "+data.current.humidity+"%");
+    currentBox.append(humidity);
+    let uv = $("<p>").text("UV Index: ");
+    let uvi = data.current.uvi;
+    let uvBox = $("<span>").text(uvi);
+    //logic to change color of UV box
+    if (uvi > 5) {
+        uvBox.addClass("badge badge-danger");
+    } else {
+        uvBox.addClass("badge badge-success");
+    }
+    uv.append(uvBox);
+    currentBox.append(uv);
 }
 
 function print5day(data) {
+    //clear out old box
+    $(".forecastBoxes").children().remove();
     
+    //add all weather info to section
+    let currentBox = $(".currentDay");
+    let date = $("<h3>").text(city+" ("+dayjs.unix(data.current.dt).format("MM-DD-YYYY")+")");
+    let icon = $("<img>").attr( "src", "http://openweathermap.org/img/wn/"+data.current.weather[0].icon+"@2x.png").css("height", "50px");
+    date.append(icon);
+    currentBox.append(date);
+    let temp = $("<p>").text("Temp: "+data.current.temp+"°F");
+    currentBox.append(temp);
+    let wind = $("<p>").text("Wind: "+data.current.wind_speed+"MPH");
+    currentBox.append(wind);
+    let humidity = $("<p>").text("Humidity: "+data.current.humidity+"%");
+    currentBox.append(humidity);
+    let uv = $("<p>").text("UV Index: ");
+    let uvi = data.current.uvi;
+    let uvBox = $("<span>").text(uvi);
+    //logic to change color of UV box
+    if (uvi > 5) {
+        uvBox.addClass("badge badge-danger");
+    } else {
+        uvBox.addClass("badge badge-success");
+    }
+    uv.append(uvBox);
+    currentBox.append(uv);
 }
 // use weather API to find all weather data using lat and lon and then populate in
 
