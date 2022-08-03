@@ -1,9 +1,6 @@
-var city = "";
+var city ="";
 var lat = "";
 var lon = "";
-var apiKey = "36475aa6e6360c06a75febf0d999bfb7";
-var geoUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=" + apiKey;
-var requestUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=minutely,hourly,alerts&appid=" + apiKey + "&units=imperial";
 var prevSearches = [];
 
 //functionalty for search button
@@ -77,42 +74,51 @@ displaySearches();
 
 function geoRequest() {
     var requestGood = true;
-    // fetch(geoUrl) //once request is accepted ->
-    //     .then(function (geoResp) {
-    //         //add check if city found
-    //         if (geoResp.status !== 200) {
-    //             requestGood = false;
-    //             return null;
-    //         } else {
-    //             return geoResp.json(); //.json because response is http, but ,json extracts json
-    //         }
-    //     })
-    //     .then(function (geoData) {
-    //         if (geoData === null) {
-    //             return;
-    //         } else {
-    //             lat = geoData.lat;
-    //             lon = geoData.lon;
-    //             weatherRequest();
-    //         }
-    //     })
+    fetch("http://api.openweathermap.org/geo/1.0/direct?q="+city+"&limit=1&appid=36475aa6e6360c06a75febf0d999bfb7") //once request is accepted ->
+        .then(function (geoResp) {
+            //add check if city found
+            if (geoResp.status !== 200) {
+                requestGood = false;
+                return null;
+            } else {
+                return geoResp.json(); //.json because response is http, but ,json extracts json
+            }
+        })
+        .then(function (geoData) {
+            if (geoData === null) {
+                return;
+            } else {
+                lat = geoData[0].lat;
+                lon = geoData[0].lon;
+                weatherRequest();
+            }
+        })
     return requestGood;
 }
 
-  // use weather API to find all weather data using lat and lon and then populate in
+function weatherRequest() {
+    fetch("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=minutely,hourly,alerts&appid=36475aa6e6360c06a75febf0d999bfb7&units=imperial") //once request is accepted ->
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            printCurrent(data);
+            print5day(data);
+        })
+    return;
+}
+
+function printCurrent(data) {
+    
+
+}
+
+function print5day(data) {
+    
+}
+// use weather API to find all weather data using lat and lon and then populate in
 
     //color of UV index box change depending on conditions 6 or more is red, 5 or below is green
-// function weatherRequest() {
-//     fetch(requestUrl) //once request is accepted ->
-//         .then(function (response) {
-//             //add check if city found
-//             return response.json(); //.json because response is http, but ,json extracts json
-//         })
-//         .then(function (data) {
-//             console.log(data);
-//         })
-
-// }
 
 
 
