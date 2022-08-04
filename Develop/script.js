@@ -1,4 +1,4 @@
-var city ="";
+var city ="Los Angeles";
 var lat = "";
 var lon = "";
 var prevSearches = [];
@@ -69,9 +69,6 @@ function displaySearches() {
     }
 };
 
-//call formula site loads
-displaySearches();
-
 function geoRequest() {
     var requestGood = true;
     fetch("http://api.openweathermap.org/geo/1.0/direct?q="+city+"&limit=1&appid=36475aa6e6360c06a75febf0d999bfb7") //once request is accepted ->
@@ -88,6 +85,7 @@ function geoRequest() {
             if (geoData === null) {
                 return;
             } else {
+                city = geoData[0].name;
                 lat = geoData[0].lat;
                 lon = geoData[0].lon;
                 weatherRequest();
@@ -128,10 +126,13 @@ function printCurrent(data) {
     let uvi = data.current.uvi;
     let uvBox = $("<span>").text(uvi);
     //logic to change color of UV box
-    if (uvi > 5) {
-        uvBox.addClass("badge badge-danger");
-    } else {
+    if (uvi < 3) {
+        
         uvBox.addClass("badge badge-success");
+    } else if ( uvi < 5){
+        uvBox.addClass("badge badge-warning");
+    } else {
+        uvBox.addClass("badge badge-danger");
     }
     uv.append(uvBox);
     currentBox.append(uv);
@@ -142,32 +143,29 @@ function print5day(data) {
     $(".forecastBoxes").children().remove();
     
     //add all weather info to section
-    let currentBox = $(".currentDay");
-    let date = $("<h3>").text(city+" ("+dayjs.unix(data.current.dt).format("MM-DD-YYYY")+")");
-    let icon = $("<img>").attr( "src", "http://openweathermap.org/img/wn/"+data.current.weather[0].icon+"@2x.png").css("height", "50px");
-    date.append(icon);
-    currentBox.append(date);
-    let temp = $("<p>").text("Temp: "+data.current.temp+"°F");
-    currentBox.append(temp);
-    let wind = $("<p>").text("Wind: "+data.current.wind_speed+"MPH");
-    currentBox.append(wind);
-    let humidity = $("<p>").text("Humidity: "+data.current.humidity+"%");
-    currentBox.append(humidity);
-    let uv = $("<p>").text("UV Index: ");
-    let uvi = data.current.uvi;
-    let uvBox = $("<span>").text(uvi);
-    //logic to change color of UV box
-    if (uvi > 5) {
-        uvBox.addClass("badge badge-danger");
-    } else {
-        uvBox.addClass("badge badge-success");
-    }
-    uv.append(uvBox);
-    currentBox.append(uv);
-}
-// use weather API to find all weather data using lat and lon and then populate in
+    let forecastBoxes = $(".forecastBoxes");
 
-    //color of UV index box change depending on conditions 6 or more is red, 5 or below is green
+    //for loop to add all individual boxes
+    for (let i = 1; i < 6; i++ ){
+        let forecastBox = $("<div>").addClass("col-12 col-sm-12 col-md-2 col-lg-2 card text-white mb-3");
+        let date = $("<h5>").text(dayjs.unix(data.daily[i].dt).format("MM-DD-YYYY"));
+        forecastBox.append(date);
+        let icon = $("<img>").attr( "src", "http://openweathermap.org/img/wn/"+data.daily[i].weather[0].icon+"@2x.png").addClass("fBox");
+        forecastBox.append(icon);
+        let temp = $("<p>").text("Temp: "+data.daily[i].temp.day+"°F");
+        forecastBox.append(temp);
+        let wind = $("<p>").text("Wind: "+data.daily[i].wind_speed+"MPH");
+        forecastBox.append(wind);
+        let humidity = $("<p>").text("Humidity: "+data.daily[i].humidity+"%");
+        forecastBox.append(humidity);
+        forecastBoxes.append(forecastBox);
+    }
+}
+
+//call formula site loads
+geoRequest();
+displaySearches();
+
 
 
 

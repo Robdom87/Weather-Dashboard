@@ -6,10 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Dashboard</title>
-    <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="./Assets/reset.css">
     <link rel="stylesheet" href="./Assets/style.css">
 </head>
@@ -26,7 +23,7 @@
                     <input type="text" class="form-control" placeholder="City">
                     <button type="submit" class="search btn btn-primary">Search</button>
                     <ul>
-
+                    <!-- search history buttons -->
                     </ul>
                 </div>
                 <!-- weather section  -->
@@ -35,6 +32,7 @@
                         <!-- current day weather -->
                         <div class="row">
                             <div class="col-12 currentDay">
+                                <!-- current day weather displayed -->
                             </div>
                         </div>
                         <!-- 5 day forecast boxes -->
@@ -44,42 +42,8 @@
                             </div>
                         </div>
                         <!-- forecast boxes -->
-                        <div class="row forecastBoxes">
-                            <div class="col-12 col-sm-12 col-md-2 col-lg-2 card text-white mb-3">
-                                <h5>3/31/2021</h5>
-                                <span class="material-symbols-outlined fBox">sunny</span>
-                                <p>Temp: 74.01 F</p>
-                                <p>Wind: 6.67 MPH</p>
-                                <p>Humidity: 46%</p>
-                            </div>
-                            <div class="col-12 col-sm-12 col-md-2 col-lg-2 card text-white mb-3">
-                                <h5>3/31/2021</h5>
-                                <span class="material-symbols-outlined fBox">sunny</span>
-                                <p>Temp: 74.01 F</p>
-                                <p>Wind: 6.67 MPH</p>
-                                <p>Humidity: 46%</p>
-                            </div>
-                            <div class="col-12 col-sm-12 col-md-2 col-lg-2 card text-white mb-3">
-                                <h5>3/31/2021</h5>
-                                <span class="material-symbols-outlined fBox">sunny</span>
-                                <p>Temp: 74.01 F</p>
-                                <p>Wind: 6.67 MPH</p>
-                                <p>Humidity: 46%</p>
-                            </div>
-                            <div class="col-12 col-sm-12 col-md-2 col-lg-2 card text-white mb-3">
-                                <h5>3/31/2021</h5>
-                                <span class="material-symbols-outlined fBox">sunny</span>
-                                <p>Temp: 74.01 F</p>
-                                <p>Wind: 6.67 MPH</p>
-                                <p>Humidity: 46%</p>
-                            </div>
-                            <div class="col-12 col-sm-12 col-md-2 col-lg-2 card text-white mb-3">
-                                <h5>3/31/2021</h5>
-                                <span class="material-symbols-outlined fBox">sunny</span>
-                                <p>Temp: 74.01 F</p>
-                                <p>Wind: 6.67 MPH</p>
-                                <p>Humidity: 46%</p>
-                            </div>
+                        <div class="row forecastBoxes"> 
+                            <!-- forcast boxes weather displayed  -->
                         </div>
                     </div>
                 </div>
@@ -92,7 +56,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Not Found</h5>
+                    <h5 class="modal-title" id="notFound">Not Found</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -108,7 +72,6 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script src="./Develop/script.js"></script>
 </body>
 
