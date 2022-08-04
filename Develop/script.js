@@ -71,7 +71,7 @@ function displaySearches() {
 
 function geoRequest() {
     var requestGood = true;
-    fetch("http://api.openweathermap.org/geo/1.0/direct?q="+city+"&limit=1&appid=36475aa6e6360c06a75febf0d999bfb7") //once request is accepted ->
+    fetch("https://api.openweathermap.org/geo/1.0/direct?q="+city+"&limit=1&appid=36475aa6e6360c06a75febf0d999bfb7") //once request is accepted ->
         .then(function (geoResp) {
             //add check if city found
             if (geoResp.status !== 200) {
@@ -113,7 +113,7 @@ function printCurrent(data) {
     //add all weather info to section
     let currentBox = $(".currentDay");
     let date = $("<h3>").text(city+" ("+dayjs.unix(data.current.dt).format("MM-DD-YYYY")+")");
-    let icon = $("<img>").attr( "src", "http://openweathermap.org/img/wn/"+data.current.weather[0].icon+"@2x.png").css("height", "50px");
+    let icon = $("<img>").attr( "src", "https://openweathermap.org/img/wn/"+data.current.weather[0].icon+"@2x.png").css("height", "50px");
     date.append(icon);
     currentBox.append(date);
     let temp = $("<p>").text("Temp: "+data.current.temp+"°F");
@@ -150,7 +150,7 @@ function print5day(data) {
         let forecastBox = $("<div>").addClass("col-12 col-sm-12 col-md-2 col-lg-2 card text-white mb-3");
         let date = $("<h5>").text(dayjs.unix(data.daily[i].dt).format("MM-DD-YYYY"));
         forecastBox.append(date);
-        let icon = $("<img>").attr( "src", "http://openweathermap.org/img/wn/"+data.daily[i].weather[0].icon+"@2x.png").addClass("fBox");
+        let icon = $("<img>").attr( "src", "https://openweathermap.org/img/wn/"+data.daily[i].weather[0].icon+"@2x.png").addClass("fBox");
         forecastBox.append(icon);
         let temp = $("<p>").text("Temp: "+data.daily[i].temp.day+"°F");
         forecastBox.append(temp);
